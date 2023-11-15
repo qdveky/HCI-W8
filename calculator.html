@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sandwich Price Calculator</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      // Function to update total price based on checkbox selections
+      function updateTotalPrice() {
+        var qty = parseFloat($("input[name='inlineRadioOptions']:checked").val());
+        var unitPrice = 1.00; // Initial total price
+        // Loop through checkboxes and add the price of selected ones
+        $(":checkbox:checked").each(function(){
+          unitPrice += parseFloat($(this).val());
+        });
+        var total = qty * unitPrice
+        // Update the total price in the HTML
+        $("#totalPrice").text(total.toFixed(2));
+      }
+  
+      // Listen for checkbox changes and update total price
+      $(":checkbox").change(function(){
+        updateTotalPrice();
+      });
+      // Listen for radio button changes and update total price
+      $("input[name='inlineRadioOptions']").change(function(){
+        updateTotalPrice();
+      });
+    });
+  </script>
+</head>
+<body>
+
+<div class="container mt-4">
+  <div class="text-center">
+    <h2>Sandwich price calculator</h2>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="2.00" id="chickenCheckbox">
+      <label class="form-check-label" for="chickenCheckbox">
+        Chicken (2.00€)
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="1.00" id="hamCheckbox">
+      <label class="form-check-label" for="hamCheckbox">
+        Ham (1.00€)
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="0.50" id="tomatoCheckbox">
+      <label class="form-check-label" for="tomatoCheckbox">
+        Tomato (0.50€)
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="0.50" id="lettuceCheckbox">
+      <label class="form-check-label" for="lettuceCheckbox">
+        Lettuce (0.50€)
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="0.50" id="mayoCheckbox">
+      <label class="form-check-label" for="mayoCheckbox">
+        Mayonnaise (0.50€)
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="0.50" id="onionCheckbox">
+      <label class="form-check-label" for="onionCheckbox">
+        Onion (0.50€)
+      </label>
+    </div>
+    <p class="mt-2 mb-1">Quantity:</p>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked>
+      <label class="form-check-label" for="inlineRadio1">1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+      <label class="form-check-label" for="inlineRadio2">2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+      <label class="form-check-label" for="inlineRadio3">3</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
+      <label class="form-check-label" for="inlineRadio4">4</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5">
+      <label class="form-check-label" for="inlineRadio4">5</label>
+    </div>
+    <h5 class="mt-3">Total price (€): <span id="totalPrice">1.00</span></h5>
+  </div>
+</div>
+
+</body>
+</html>

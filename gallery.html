@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery with Filters</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Add your custom styles here */
+    .gallery-item {
+      margin-bottom: 20px;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $("button.all").click(function(){
+      $("div.orca").show();
+      $("div.nature").show();
+      $("div.cat").show();
+    });
+    $("button.cat").click(function(){
+      $("div.cat").show();
+      $("div.nature").hide();
+      $("div.orca").hide();
+    });
+    $("button.nature").click(function(){
+      $("div.nature").show();
+      $("div.cat").hide();
+      $("div.orca").hide();
+    });
+    $("button.orca").click(function(){
+      $("div.orca").show();
+      $("div.nature").hide();
+      $("div.cat").hide();
+    });
+  });
+  </script>
+</head>
+<body>
+
+<div class="container mt-4">
+  <div class="text-center">
+    <button class="btn btn-primary filter-button all" data-filter="all">All</button>
+    <button class="btn btn-primary filter-button nature" data-filter="nature">Nature</button>
+    <button class="btn btn-primary filter-button cat" data-filter="cats">Cats</button>
+    <button class="btn btn-primary filter-button orca" data-filter="orcas">Orcas</button>
+  </div>
+
+  <div class="row mt-3" id="image-gallery">
+    <div class="col-lg-4 col-md-6 col-sm-12 gallery-item nature">
+      <img src="nature1.jpg" alt="Nature 1" class="img-fluid">
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 gallery-item cat">
+      <img src="cat1.jpg" alt="Cat 1" class="img-fluid">
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 gallery-item orca">
+      <img src="orca1.jpg" alt="Orca 1" class="img-fluid">
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 gallery-item orca">
+      <img src="orca2.jpg" alt="Orca 2" class="img-fluid">
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 gallery-item cat">
+      <img src="cat2.jpg" alt="Cat 2" class="img-fluid">
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 gallery-item nature">
+      <img src="nature2.jpg" alt="Nature 2" class="img-fluid">
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 gallery-item cat">
+      <img src="cat3.jpg" alt="Cat 3" class="img-fluid">
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 gallery-item orca">
+      <img src="orca3.jpg" alt="Orca 3" class="img-fluid">
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 gallery-item nature">
+      <img src="nature3.jpg" alt="Nature 3" class="img-fluid">
+    </div>
+    <!-- Add more images with appropriate classes and file paths -->
+  </div>
+</div>
+</body>
+</html>
